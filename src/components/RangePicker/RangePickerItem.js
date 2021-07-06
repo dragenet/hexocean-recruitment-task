@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import styled from 'styled-components';
-import Colors from '../../utils/colors';
+import colors from '../../utils/colors';
 
 import PickerContext from './RangePickerContext';
 
@@ -16,9 +16,9 @@ const Item = styled.div`
   min-width: 20px;
   border-radius: 15px;
   cursor: pointer;
-  border: 2px solid ${Colors.primary};
-  background-color: ${(props) => (props.active ? Colors.primary : Colors.background)};
-  color: ${Colors.rangePickerColor /*(props) => (props.active ? Colors.rangePickerActiveColor : Colors.primary)*/};
+  border: 2px solid ${colors.primary};
+  background-color: ${(props) => (props.active ? colors.primary : colors.background)};
+  color: ${colors.textColor};
 `;
 
 const RangePickerItem = ({ children, value }) => {
