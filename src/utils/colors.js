@@ -4,4 +4,6 @@ export default {
   background: '#ffffff',
   formError: '#ff2e51',
   labelColor: '#636363',
+  rangePickerActiveBackground: '#ffffff',
+  rangePickerColor: '#000000',
 };
