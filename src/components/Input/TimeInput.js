@@ -1,0 +1,50 @@
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import Colors from '../../utils/colors';
+
+import GenericInput from './TextInput';
+
+const Wrapper = styled.div`
+  width: 100px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+`;
+
+const StyledInput = styled.input`
+  width: 100%;
+  padding: 10px;
+  border: 2px solid ${Colors.secondary};
+  border-radius: 15px;
+  outline: none;
+  &:focus {
+    border-color: ${Colors.primary};
+  }
+`;
+
+const StyledLabel = styled.label`
+  display: block;
+  margin-left: 8px;
+  color: ${Colors.labelColor};
+`;
+
+const TimeInput = ({ className, props, children, name, type }) => {
+  return (
+    <Wrapper className={className}>
+      <StyledLabel for={name}>{children}</StyledLabel>
+      <StyledInput id={name} name={name} type="time" placeholder=" " step="2" />
+    </Wrapper>
+  );
+};
+
+TimeInput.propTypes = {
+  children: PropTypes.node,
+  type: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  className: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+};
+
+TimeInput.defaultProps = {
+  children: null,
+};
+
+export default TimeInput;
