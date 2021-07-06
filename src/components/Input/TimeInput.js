@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Colors from '../../utils/colors';
+import colors from '../../utils/colors';
 
-import GenericInput from './TextInput';
+import GenericInput from './Input';
 
 const Wrapper = styled.div`
   width: 100px;
@@ -13,18 +13,18 @@ const Wrapper = styled.div`
 const StyledInput = styled.input`
   width: 100%;
   padding: 10px;
-  border: 2px solid ${Colors.secondary};
+  border: 2px solid ${colors.secondary};
   border-radius: 15px;
   outline: none;
   &:focus {
-    border-color: ${Colors.primary};
+    border-color: ${colors.primary};
   }
 `;
 
 const StyledLabel = styled.label`
   display: block;
   margin-left: 8px;
-  color: ${Colors.labelColor};
+  color: ${colors.labelColor};
 `;
 
 const TimeInput = ({ className, props, children, name, type }) => {

@@ -34,10 +34,20 @@ const Wrapper = styled.div`
   }
 `;
 
-const Input = ({ className, children, name, type }) => {
+const Input = ({ className, children, name, type, value, onChange, step, min, max }) => {
   return (
     <Wrapper className={className}>
-      <StyledInput id={name} name={name} placeholder=" " />
+      <StyledInput
+        type={type}
+        id={name}
+        name={name}
+        placeholder=" "
+        value={value}
+        onChange={onChange}
+        step={step?.toString()}
+        min={min?.toString()}
+        max={max?.toString()}
+      />
       <StyledLabel for={name}>{children}</StyledLabel>
     </Wrapper>
   );
@@ -48,10 +58,15 @@ Input.propTypes = {
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   className: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  onChange: PropTypes.func,
+  step: PropTypes.number,
+  min: PropTypes.number,
+  max: PropTypes.number,
 };
 
 Input.defaultProps = {
   children: null,
+  onChange: () => {},
 };
 
 export default Input;
