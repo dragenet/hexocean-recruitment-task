@@ -5,9 +5,9 @@ import colors from '../../utils/colors';
 import GenericInput from './Input';
 
 const Wrapper = styled.div`
-  width: 100px;
+  width: 120px;
   margin-top: 30px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 `;
 
 const StyledInput = styled.input`

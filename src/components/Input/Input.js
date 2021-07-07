@@ -25,9 +25,9 @@ const StyledLabel = styled.label`
 
 const Wrapper = styled.div`
   position: relative;
-  width: 350px;
+  width: 100%;
   margin-top: 30px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   ${StyledInput}:focus + ${StyledLabel},
   ${StyledInput}:not(:placeholder-shown) + ${StyledLabel} {
     transform: translateY(-100%) scale(0.9);
@@ -55,7 +55,7 @@ const Input = ({ className, children, name, type, value, onChange, step, min, ma
 
 Input.propTypes = {
   children: PropTypes.node,
-  type: PropTypes.string.isRequired,
+  type: PropTypes.string,
   name: PropTypes.string.isRequired,
   className: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   onChange: PropTypes.func,
@@ -65,6 +65,7 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
+  type: 'text',
   children: null,
   onChange: () => {},
 };

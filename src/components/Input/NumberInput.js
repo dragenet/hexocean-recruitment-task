@@ -2,7 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
 
-const NumberInput = ({ className, children, name, type, value, onChange, step, min, max }) => {
+const NumberInput = ({ className, children, name, value, onChange, step, min, max }) => {
   const [innerValue, setInnerValue] = useState(value);
 
   const onInputChange = (e) => {
@@ -20,7 +20,7 @@ const NumberInput = ({ className, children, name, type, value, onChange, step, m
   };
 
   return (
-    <Input type={type} id={name} name={name} value={innerValue} onChange={onInputChange} step={step} min={min} max={max}>
+    <Input type="number" id={name} name={name} value={innerValue} onChange={onInputChange} step={step} min={min} max={max}>
       {children}
     </Input>
   );
@@ -28,7 +28,6 @@ const NumberInput = ({ className, children, name, type, value, onChange, step, m
 
 NumberInput.propTypes = {
   children: PropTypes.node,
-  type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   className: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   onChange: PropTypes.func,
