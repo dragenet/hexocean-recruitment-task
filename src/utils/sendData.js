@@ -1,6 +1,7 @@
+import axios from 'axios';
 import consts from '../utils/consts';
 
-export const prepareDataToSend = (data) => {
+const prepareDataToSend = (data) => {
   const { name, preparation_time, category, no_of_slices, diameter, spiciness, slices_of_bread } = data;
 
   const preparedData = {
@@ -23,4 +24,18 @@ export const prepareDataToSend = (data) => {
   }
 
   return preparedData;
+};
+
+export const makeApiRequest = async (data, formik) => {
+  return await axios
+    .post(consts.API_ENDPOINT, prepareDataToSend(data))
+    .then((res) => {
+      console.log(res);
+      return consts.SUCCESSFUL;
+    })
+    .catch((err) => {
+      console.log(err.response);
+      formik.setErrors(err.response.data);
+      return consts.FAILED;
+    });
 };

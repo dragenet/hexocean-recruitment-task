@@ -10,6 +10,7 @@ import { useFormik } from 'formik';
 
 import validators from '../utils/validators';
 import consts from '../utils/consts';
+import { makeApiRequest } from '../utils/sendData';
 
 const categories = [consts.PIZZA, consts.SOUP, consts.SANDWICH];
 
@@ -32,14 +33,15 @@ const initialValues = {
   slices_of_bread: 1,
 };
 
-const FormView = () => {
+const FormView = ({ onChange }) => {
   const [category, setCategory] = useState(null);
 
   const formik = useFormik({
     initialValues,
     validate: validators,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+    onSubmit: async (values) => {
+      const res = await makeApiRequest(values, formik);
+      if (res === consts.SUCCESSFUL) onChange(true);
     },
   });
 
