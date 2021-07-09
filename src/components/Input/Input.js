@@ -8,6 +8,7 @@ const StyledInput = styled.input`
   border: 2px solid ${colors.secondary};
   border-radius: 15px;
   outline: none;
+  border-color: ${({ hasError }) => hasError && colors.formError};
   &:focus {
     border-color: ${colors.primary};
   }
@@ -34,7 +35,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Input = ({ className, children, name, type, value, onChange, step, min, max }) => {
+const Input = ({ className, children, name, type, value, onChange, step, min, max, hasError }) => {
   return (
     <Wrapper className={className}>
       <StyledInput
@@ -47,6 +48,7 @@ const Input = ({ className, children, name, type, value, onChange, step, min, ma
         step={step?.toString()}
         min={min?.toString()}
         max={max?.toString()}
+        hasError={hasError}
       />
       <StyledLabel for={name}>{children}</StyledLabel>
     </Wrapper>

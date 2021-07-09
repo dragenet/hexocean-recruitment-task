@@ -1,9 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
 
 const NumberInput = ({ className, children, name, value, onChange, step, min, max }) => {
   const [innerValue, setInnerValue] = useState(value);
+
+  useEffect(() => {
+    setInnerValue(value);
+  }, [value]);
 
   const onInputChange = (e) => {
     const newValue = e.target.value;
@@ -16,7 +20,7 @@ const NumberInput = ({ className, children, name, value, onChange, step, min, ma
       newInnerValue = newValue;
     }
     setInnerValue(newInnerValue);
-    onChange(newInnerValue);
+    onChange({ ...e, target: { name, value: newInnerValue } });
   };
 
   return (

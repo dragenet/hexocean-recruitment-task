@@ -22,7 +22,7 @@ const Label = styled.div`
   color: ${colors.labelColor};
 `;
 
-const RangePicker = ({ children, onChange, value, label }) => {
+const RangePicker = ({ children, onChange, value, label, hasError }) => {
   const [currentValue, setCurrentValue] = useState(value);
 
   const onItemClick = (value) => {
@@ -34,7 +34,7 @@ const RangePicker = ({ children, onChange, value, label }) => {
     <Wrapper>
       {label && <Label>{label}</Label>}
       <InnerWrapper>
-        <PickerContext.Provider value={{ currentValue, onItemClick }}>{children}</PickerContext.Provider>
+        <PickerContext.Provider value={{ currentValue, onItemClick, hasError }}>{children}</PickerContext.Provider>
       </InnerWrapper>
     </Wrapper>
   );

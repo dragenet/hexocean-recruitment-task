@@ -16,6 +16,7 @@ const StyledInput = styled.input`
   border: 2px solid ${colors.secondary};
   border-radius: 15px;
   outline: none;
+  border-color: ${({ hasError }) => hasError && colors.formError};
   &:focus {
     border-color: ${colors.primary};
   }
@@ -27,11 +28,20 @@ const StyledLabel = styled.label`
   color: ${colors.labelColor};
 `;
 
-const TimeInput = ({ className, props, children, name, type }) => {
+const TimeInput = ({ className, props, children, name, type, value, onChange, hasError }) => {
   return (
     <Wrapper className={className}>
       <StyledLabel for={name}>{children}</StyledLabel>
-      <StyledInput id={name} name={name} type="time" placeholder=" " step="2" />
+      <StyledInput
+        id={name}
+        name={name}
+        value={value}
+        onChange={onChange}
+        type="time"
+        placeholder=" "
+        step="1"
+        hasError={hasError}
+      />
     </Wrapper>
   );
 };
