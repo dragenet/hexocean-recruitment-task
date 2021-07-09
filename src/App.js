@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import FormView from './views/FormView';
 import CompletedView from './views/CompletedView';
+import colors from './utils/colors';
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -11,6 +12,14 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  *,
+  *:before,
+  *:after {
+    -webkit-box-sizing: border-box !important;
+    -moz-box-sizing: border-box !important;
+    -ms-box-sizing: border-box !important;
+    box-sizing: border-box !important;
+  }
 `;
 
 const App = () => {
