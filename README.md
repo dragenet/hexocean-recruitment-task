@@ -1,7 +1,7 @@
 # Hexocean recruitment task
 
-Project created for Hexocean recruitment purpose
-
+Project created for Hexocean recruitment purpose.
+Tested on Node v16.2
 That task took me something about 6 hours.
 
 ## Installation
@@ -21,7 +21,7 @@ Run react development server with live reload
 Or make a build and put it on any regular http server
 
 ```bash
-  yarn run build
+  yarn build
 ```
 
 ## 🔗 Links
