@@ -14,7 +14,7 @@ const validators = (values) => {
   }
 
   if (values.category === consts.SOUP) {
-    if (!values.spiciness) errors.spiciness = 'Required';
+    if (!values.spiciness_scale) errors.spiciness_scale = 'Required';
   }
 
   if (values.category === consts.SANDWICH) {

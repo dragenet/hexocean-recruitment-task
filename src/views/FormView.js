@@ -29,7 +29,7 @@ const initialValues = {
   category: null,
   no_of_slices: 1,
   diameter: 30,
-  spiciness: null,
+  spiciness_scale: null,
   slices_of_bread: 1,
 };
 
@@ -98,11 +98,11 @@ const FormView = ({ onChange }) => {
       )}
       {formik.values.category === consts.SOUP && (
         <RangePicker
-          name="spiciness"
+          name="spiciness_scale"
           label="Spiciness"
-          value={formik.values.spiciness}
-          onChange={(value) => formik.handleChange({ target: { name: 'spiciness', value } })}
-          hasError={formik.errors.spiciness}
+          value={formik.values.spiciness_scale}
+          onChange={(value) => formik.handleChange({ target: { name: 'spiciness_scale', value } })}
+          hasError={formik.errors.spiciness_scale}
         >
           {[...Array(10).keys()].map((item) => (
             <RangePickerItem value={item + 1}> {item + 1}</RangePickerItem>
